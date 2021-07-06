@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="__CSS_BASE_PATH__" />
+    <script async src="__LIB_BASE_PATH__"></script>
+    <script charSet="UTF-8">
+      window.__data__ = JSON.parse(__DATA_PLACEHOLDER__);
+    </script>
+    <script src="__JS_BASE_PATH__" type="module"></script>
+    <title>Snipped</title>
+  </head>
+  <body>
+    <div class="header">
+      <div id="copy" class="button" title="Copy">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      </div>
+
+      <div id="download" class="button" title="Download">
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><path d="M18,15v3H6v-3H4v3c0,1.1,0.9,2,2,2h12c1.1,0,2-0.9,2-2v-3H18z M17,11l-1.41-1.41L13,12.17V4h-2v8.17L8.41,9.59L7,11l5,5 L17,11z"/></g></svg>
+      </div>
+
+      <div class="button" title="Tweet">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>      </div>
+      </div>
+    </div>
+    <div class="content" id="content">
+      <div class="container" id="container">
+        <div>
+          <div class="title">
+            <div class="dot dotA"></div>
+            <div class="dot dotB"></div>
+            <div class="dot dotC"></div>
+            <div id="title" class="text"></div>
+          </div>
+          <div class="wrapper">
+            <div id="lines"></div>
+            <div id="output"></div>
+          </div>
+          <div class="footer">Snipped</div>
+        </div>
+      </div>  
+    </div>
+  </body>
+</html>

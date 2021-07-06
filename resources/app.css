@@ -1,0 +1,154 @@
+body {
+  padding: 0;
+  margin-top: 0;
+  background-color: var(--vscode-editor-background);
+}
+
+.header {
+  height: 55px;
+  background-color: var(--vscode-editor-background);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px;
+}
+
+.footer {
+  background-color: var(--vscode-editor-background);
+  display: flex;
+  justify-content: center;
+  padding: 8px;
+  padding-bottom: 12px;
+  color: rgba(255, 255, 255, 0.3);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.button {
+  border-radius: 3px;
+  padding: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.button:active {
+  transform: scale(0.9);
+}
+
+.button svg {
+  width: 25px;
+  height: 25px;
+}
+
+.button svg {
+  fill: white;
+}
+
+.content {
+  background: #c9d6ff;
+  background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff);
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  margin: 80px 0;
+  box-shadow: rgb(0, 0, 0, 0.3) 0px 20px 60px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.wrapper {
+  padding: 10px 18px;
+  background-color: var(--vscode-editor-background);
+  display: flex;
+  min-width: 250px;
+  min-height: 150px;
+}
+
+.title {
+  height: 35px;
+  background-color: var(--vscode-editor-background);
+  padding: 3px 18px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+}
+
+.text {
+  margin-left: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.dotA {
+  background-color: #ff5f55;
+}
+
+.dotB {
+  background-color: #ffbd2d;
+}
+
+.dotC {
+  background-color: #25c93f;
+}
+
+#lines {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  padding-top: 0;
+  padding-left: 0;
+  margin-right: 15px;
+}
+
+#lines span {
+  color: var(--vscode-editorLineNumber-foreground);
+  font-family: var(--vscode-editor-font-family);
+  font-size: var(--vscode-editor-font-size);
+  line-height: var(--vscode-editor-lineHeight);
+  cursor: default;
+}
+
+.bounce {
+  opacity: 1;
+  animation-duration: 0.3s;
+  animation-name: bounceF;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+@keyframes bounceF {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  30% {
+    transform: scale(1.1, 1.1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}

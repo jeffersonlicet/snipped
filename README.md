@@ -30,4 +30,5 @@
 
 <img src="https://i.imgur.com/SAsP6Lv.png" width="600">
 
-
+## Credits
+Inspired in [kufii extension](https://github.com/kufii/CodeSnap)

@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="__CSS_BASE_PATH__" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src %CSP_SOURCE% data: https:; script-src %CSP_SOURCE%; style-src 'unsafe-inline' %CSP_SOURCE%;"
+      content="default-src 'none'; img-src __CSP_SOURCE__ data: https:; script-src 'unsafe-inline' __CSP_SOURCE__; style-src 'unsafe-inline' __CSP_SOURCE__;"
     />
     <title>Snipped</title>
+    <script async src="__LIB_BASE_PATH__"></script>
+    <script charSet="UTF-8">
+      window.__data__ = JSON.parse(__DATA_PLACEHOLDER__);
+    </script>
+    <script src="__JS_BASE_PATH__" type="module"></script>
   </head>
   <body>
     <div class="header">
@@ -44,10 +49,5 @@
       </div>  
     </div>
   </div>
-    <script async src="__LIB_BASE_PATH__"></script>
-    <script charSet="UTF-8">
-      window.__data__ = JSON.parse(__DATA_PLACEHOLDER__);
-    </script>
-    <script src="__JS_BASE_PATH__" type="module"></script>
   </body>
 </html>

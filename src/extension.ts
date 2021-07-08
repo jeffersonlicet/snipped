@@ -112,6 +112,8 @@ export function activate(context: vscode.ExtensionContext) {
           html = html.replace(key, value);
         });
 
+        html = html.replace(/__CSP_SOURCE__/g, panel.webview.cspSource);
+
         panel.webview.html = html;
       } catch (e) {
         console.log(e);

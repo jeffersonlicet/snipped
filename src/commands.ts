@@ -7,7 +7,6 @@ function command(command: string) {
 export function selectAll() {
   const { activeTextEditor } = vscode.window;
 
-  // TODO: show alert for no active editor
   if (!activeTextEditor) {
     return;
   }

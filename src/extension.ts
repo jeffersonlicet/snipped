@@ -12,7 +12,7 @@ import { writeFile } from "fs";
 
 export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
-    "tweet-it.start",
+    "snipped.start",
     async () => {
       try {
         const prevState: PrevState = {};
@@ -49,6 +49,20 @@ export function activate(context: vscode.ExtensionContext) {
 
           if (type === "copied") {
             vscode.window.showInformationMessage("Snipped copied");
+          }
+
+          if (type === "tweet") {
+            const res = await vscode.window.showInformationMessage(
+              "The snipped is copied in your clipboard. Click Compose Tweet and paste it on the Twitter Composer for sharing it as an image.",
+              "Cancel",
+              "Compose Tweet"
+            );
+
+            if (res === "Compose Tweet") {
+              vscode.env.openExternal(
+                vscode.Uri.parse(`https://twitter.com/intent/tweet`)
+              );
+            }
           }
 
           if (type === "download") {

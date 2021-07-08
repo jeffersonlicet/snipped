@@ -1,6 +1,6 @@
 {
-  "name": "tweet-it",
-  "displayName": "tweet-it",
+  "name": "snipped",
+  "displayName": "Snipped",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -10,14 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:tweet-it.start"
+    "onCommand:snipped.start"
   ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "tweet-it.start",
-        "title": "Start"
+        "command": "snipped.start",
+        "title": "Snipped > Take code screenshot"
       }
     ]
   },
@@ -50,10 +50,6 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "dom-to-image": "^2.6.0",
-    "dom-to-image-even-more": "^1.0.4",
-    "html2canvas": "^1.0.0",
-    "node-html-to-image": "^3.2.0",
-    "puppeteer": "^3.0.4"
+    "dom-to-image-even-more": "^1.0.4"
   }
 }

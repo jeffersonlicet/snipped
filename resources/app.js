@@ -1,9 +1,11 @@
 const node = document.getElementById("output");
-const containerNode = document.getElementById("container");
-const contentNode = document.getElementById("content");
 
 const copyButton = document.getElementById("copy");
+const tweetButton = document.getElementById("tweet");
 const downloadButton = document.getElementById("download");
+
+const contentNode = document.getElementById("content");
+const containerNode = document.getElementById("container");
 
 const vscode = acquireVsCodeApi();
 
@@ -15,19 +17,18 @@ function base64ToBlob(b64Data, contentType = "", sliceSize = 512) {
     const slice = byteCharacters.slice(offset, offset + sliceSize);
 
     const byteNumbers = new Array(slice.length);
+
     for (let i = 0; i < slice.length; i++) {
       byteNumbers[i] = slice.charCodeAt(i);
     }
 
-    const byteArray = new Uint8Array(byteNumbers);
-    byteArrays.push(byteArray);
+    byteArrays.push(new Uint8Array(byteNumbers));
   }
 
-  const blob = new Blob(byteArrays, { type: contentType });
-  return blob;
+  return new Blob(byteArrays, { type: contentType });
 }
 
-async function copyImage() {
+async function copyImage(omitMessage) {
   const url = await domtoimage.toPng(contentNode, {
     bgColor: "transparent",
     scale: 3,
@@ -37,8 +38,10 @@ async function copyImage() {
   const item = new ClipboardItem({ "image/png": blob });
 
   navigator.clipboard.write([item]);
-  console.log(url);
-  vscode.postMessage({ type: "copied" });
+
+  if (!omitMessage) {
+    vscode.postMessage({ type: "copied" });
+  }
 }
 
 async function downloadImage() {
@@ -47,11 +50,20 @@ async function downloadImage() {
     scale: 3,
   });
 
-  vscode.postMessage({ type: "download", data });
+  vscode.postMessage({
+    type: "download",
+    data: data.slice(data.indexOf(",") + 1),
+  });
 }
 
-copyButton.addEventListener("click", copyImage);
+async function composeTweet() {
+  await copyImage(true);
+  vscode.postMessage({ type: "tweet" });
+}
+
+copyButton.addEventListener("click", () => copyImage(false));
 downloadButton.addEventListener("click", downloadImage);
+tweetButton.addEventListener("click", composeTweet);
 
 document.addEventListener("paste", async (e) => {
   const html =

@@ -28,8 +28,6 @@ export function activate(context: vscode.ExtensionContext) {
           "index.html"
         );
 
-        await copyText();
-
         const panel = vscode.window.createWebviewPanel(
           "snipped-tab",
           "Snipped",
@@ -83,6 +81,8 @@ export function activate(context: vscode.ExtensionContext) {
 
         prevState.clipboard = await vscode.env.clipboard.readText();
         prevState.selection = editor.selection;
+
+        await copyText();
 
         let html = await read(contentPath);
 

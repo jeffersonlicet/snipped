@@ -12,10 +12,8 @@ export async function copyText() {
   const selection = activeTextEditor.selection;
 
   if (!selection || selection.isEmpty) {
-    console.log("No selection");
     selectAll();
   } else {
-    console.log("there is a selection");
   }
 
   await copySelection();

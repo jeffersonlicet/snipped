@@ -22,6 +22,11 @@ export function activate(context: vscode.ExtensionContext) {
           return;
         }
 
+        prevState.clipboard = await vscode.env.clipboard.readText();
+        prevState.selection = editor.selection;
+
+        await copyText();
+
         const contentPath = path.resolve(
           context.extensionPath,
           "resources",
@@ -78,11 +83,6 @@ export function activate(context: vscode.ExtensionContext) {
             }
           }
         });
-
-        prevState.clipboard = await vscode.env.clipboard.readText();
-        prevState.selection = editor.selection;
-
-        await copyText();
 
         let html = await read(contentPath);
 

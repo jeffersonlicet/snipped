@@ -5,7 +5,6 @@ export async function copyText() {
   const activeTextEditor = vscode.window.activeTextEditor;
 
   if (!activeTextEditor) {
-    console.log("no active text editor in copytext");
     return;
   }
 

@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function composeTweet() {
+    console.log("Compose tweet click");
     await copyImage(true);
     vscode.postMessage({ type: "tweet" });
   }

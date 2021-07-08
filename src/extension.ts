@@ -120,9 +120,12 @@ export function activate(context: vscode.ExtensionContext) {
           value: panel.webview
             .asWebviewUri(
               vscode.Uri.file(
-                path.resolve(
+                path.join(
                   context.extensionPath,
-                  "node_modules/dom-to-image-even-more/dist/dom-to-image-more.min.js"
+                  "node_modules",
+                  "dom-to-image-even-more",
+                  "dist",
+                  "dom-to-image-more.min.js"
                 )
               )
             )

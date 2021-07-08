@@ -7,7 +7,7 @@
   const downloadButton = document.querySelector("#download");
 
   copyButton.addEventListener("click", () => copyImage(false));
-  downloadButton.addEventListener("click", message);
+  downloadButton.addEventListener("click", downloadImage);
   tweetButton.addEventListener("click", composeTweet);
 
   const contentNode = document.getElementById("content");
@@ -48,16 +48,14 @@
     }
   }
 
-  function message() {
-    vscode.postMessage({ type: "copied" });
-  }
-
   async function downloadImage() {
+    vscode.postMessage({ type: "message", message: "downloading" });
     const data = await domtoimage.toPng(contentNode, {
       bgColor: "transparent",
       scale: 3,
     });
 
+    vscode.postMessage({ type: "message", message: "generated" });
     vscode.postMessage({
       type: "download",
       data: data.slice(data.indexOf(",") + 1),

@@ -48,9 +48,13 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );
 
-        panel.webview.onDidReceiveMessage(async ({ type, data }) => {
+        panel.webview.onDidReceiveMessage(async ({ type, data, message }) => {
           if (type === SIGNALS.end) {
             onEndSignal(editor, prevState);
+          }
+
+          if (type === "message") {
+            vscode.window.showInformationMessage(message);
           }
 
           if (type === "copied") {

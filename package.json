@@ -1,17 +1,35 @@
 {
   "name": "snipped",
   "displayName": "Snipped",
-  "description": "",
+  "publisher": "jeffersonlicet",
+  "description": "Create fancy screenshots of your code without leaving the editor.",
+  "author": {
+    "name": "Jefferson Licet"
+  },
+  "icon": "resources/icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.57.0"
   },
+  "bugs": {
+    "url": "https://github.com/jeffersonlicet/snipped/issues",
+    "email": "jeffersonlicet@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeffersonlicet/snipped.git"
+  },
+  "homepage": "https://github.com/jeffersonlicet/snipped",
   "categories": [
     "Other"
   ],
   "activationEvents": [
     "onCommand:snipped.start"
   ],
+  "galleryBanner": {
+    "color": "#282A36",
+    "theme": "dark"
+  },
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [

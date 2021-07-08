@@ -1,8 +1,8 @@
 const node = document.getElementById("output");
 
-const copyButton = document.getElementById("copy");
-const tweetButton = document.getElementById("tweet");
-const downloadButton = document.getElementById("download");
+const copyButton = document.querySelector("#copy");
+const tweetButton = document.querySelector("#tweet");
+const downloadButton = document.querySelector("#download");
 
 const contentNode = document.getElementById("content");
 const containerNode = document.getElementById("container");
@@ -61,10 +61,6 @@ async function composeTweet() {
   vscode.postMessage({ type: "tweet" });
 }
 
-copyButton.addEventListener("click", () => copyImage(false));
-downloadButton.addEventListener("click", downloadImage);
-tweetButton.addEventListener("click", composeTweet);
-
 document.addEventListener("paste", async (e) => {
   const html =
     e.clipboardData.getData("text/html") ||
@@ -97,4 +93,9 @@ document.addEventListener("paste", async (e) => {
   vscode.postMessage({ type: "end", data: {} });
 });
 
-setTimeout(() => document.execCommand("paste"), 300);
+setTimeout(() => {
+  copyButton.addEventListener("click", () => copyImage(false));
+  downloadButton.addEventListener("click", downloadImage);
+  tweetButton.addEventListener("click", composeTweet);
+  document.execCommand("paste");
+}, 300);

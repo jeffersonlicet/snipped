@@ -1,6 +1,7 @@
 const node = document.getElementById("output");
 
 const copyButton = document.querySelector("#copy");
+console.log(copyButton);
 const tweetButton = document.querySelector("#tweet");
 const downloadButton = document.querySelector("#download");
 

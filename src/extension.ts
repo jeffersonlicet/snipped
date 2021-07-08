@@ -14,6 +14,8 @@ export function activate(context: vscode.ExtensionContext) {
   const disposable = vscode.commands.registerCommand(
     "snipped.start",
     async () => {
+      let log = vscode.window.createOutputChannel("snipped");
+
       try {
         const prevState: PrevState = {};
         const { activeTextEditor: editor } = vscode.window;
@@ -42,6 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
           },
           {
             enableScripts: true,
+            localResourceRoots: [vscode.Uri.file(context.extensionPath)],
           }
         );
 
@@ -113,9 +116,9 @@ export function activate(context: vscode.ExtensionContext) {
         });
 
         html = html.replace(/__CSP_SOURCE__/g, panel.webview.cspSource);
-        console.log(html);
         panel.webview.html = html;
       } catch (e) {
+        log.append("Error when performing extension task");
         console.log(e);
       }
     }

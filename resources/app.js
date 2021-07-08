@@ -49,13 +49,11 @@
   }
 
   async function downloadImage() {
-    vscode.postMessage({ type: "message", message: "downloading" });
     const data = await domtoimage.toPng(contentNode, {
       bgColor: "transparent",
       scale: 3,
     });
 
-    vscode.postMessage({ type: "message", message: "generated" });
     vscode.postMessage({
       type: "download",
       data: data.slice(data.indexOf(",") + 1),

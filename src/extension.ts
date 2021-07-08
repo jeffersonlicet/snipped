@@ -115,6 +115,20 @@ export function activate(context: vscode.ExtensionContext) {
           value: JSON.stringify(JSON.stringify(data)),
         });
 
+        replacements.push({
+          key: "__LIB_BASE_PATH__",
+          value: panel.webview
+            .asWebviewUri(
+              vscode.Uri.file(
+                path.resolve(
+                  context.extensionPath,
+                  "node_modules/dom-to-image-even-more/dist/dom-to-image-more.min.js"
+                )
+              )
+            )
+            .toString(),
+        });
+
         replacements.forEach(({ key, value }) => {
           html = html.replace(key, value);
         });

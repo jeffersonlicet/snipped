@@ -11,6 +11,11 @@
   "engines": {
     "vscode": "^1.57.0"
   },
+  "keywords": [
+    "screenshot",
+    "snippet",
+    "share"
+  ],
   "bugs": {
     "url": "https://github.com/jeffersonlicet/snipped/issues",
     "email": "jeffersonlicet@gmail.com"

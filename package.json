@@ -27,7 +27,7 @@
     "onCommand:snipped.start"
   ],
   "galleryBanner": {
-    "color": "#282A36",
+    "color": "#ad1457",
     "theme": "dark"
   },
   "main": "./dist/extension.js",

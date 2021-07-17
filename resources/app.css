@@ -26,9 +26,10 @@ body {
   justify-content: center;
   padding: 8px;
   padding-bottom: 12px;
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--vscode-editor-foreground);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  display: none;
 }
 
 .button {

@@ -5,6 +5,7 @@
   const copyButton = document.querySelector("#copy");
   const tweetButton = document.querySelector("#tweet");
   const downloadButton = document.querySelector("#download");
+  const footer = document.querySelector("#footer");
 
   copyButton.addEventListener("click", () => copyImage(false));
   downloadButton.addEventListener("click", downloadImage);
@@ -77,7 +78,7 @@
     const linesNode = document.getElementById("lines");
     const titleNode = document.getElementById("title");
 
-    const { start, end, fileName } = window.__data__;
+    const { start, end, fileName, enableLogo } = window.__data__;
 
     titleNode.innerHTML = fileName;
 
@@ -90,10 +91,11 @@
 
     containerNode.style.opacity = 1;
     containerNode.classList.add("bounce");
-    /*
-  
 
-*/
+    if (enableLogo) {
+      footer.style.display = "flex";
+    }
+
     vscode.postMessage({ type: "end", data: {} });
   });
 

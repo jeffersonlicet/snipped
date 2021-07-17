@@ -100,6 +100,11 @@ export function activate(context: vscode.ExtensionContext) {
             .toString(),
         }));
 
+        const { enableLogo } = vscode.workspace.getConfiguration(
+          "snipped",
+          null
+        );
+
         const data = {
           start: (editor.selection ? editor.selection.start.line : 0) + 1,
           end: editor.selection
@@ -107,6 +112,7 @@ export function activate(context: vscode.ExtensionContext) {
             : editor.document.lineCount,
           fileName: editor.document.fileName.split("/").pop(),
           lang: editor.document.languageId,
+          enableLogo,
         };
 
         // I know

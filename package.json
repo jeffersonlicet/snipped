@@ -42,7 +42,26 @@
         "command": "snipped.start",
         "title": "Snipped > Take code screenshot"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "snipped.start"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Snipped",
+      "properties": {
+        "snipped.enableLogo": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Enable Snipped Logo"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",

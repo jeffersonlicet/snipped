@@ -1,5 +1,8 @@
 # Snipped
 
+<a href="https://marketplace.visualstudio.com/items?itemName=JeffersonLicet.snipped&ssr=true#overview"><img src="https://vsmarketplacebadge.apphb.com/version/jeffersonlicet.snipped.svg"></a>
+<img src="https://vsmarketplacebadge.apphb.com/downloads/jeffersonlicet.snipped.svg">
+
 <img src="https://i.imgur.com/Maaf4pM.png" width="130">
 
 ## Create fancy screenshots of your code without leaving the editor.
@@ -19,7 +22,8 @@
 - No external websites, you don't need to paste your code in external services.
 
 ## How to use it
- - Install the extension on Visual Studio Code
+ - Install the extension on Visual Studio Code Here
+   https://marketplace.visualstudio.com/items?itemName=JeffersonLicet.snipped&ssr=true#overview
  - Select your code or select a file
  - Open the command palette (Ctrl+Shift+P on Windows and Linux, Cmd+Shift+P on OS X) and type: Snipped
  - Select **Take Code Screenshot**

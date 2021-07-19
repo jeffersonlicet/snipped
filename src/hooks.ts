@@ -17,7 +17,7 @@ export async function onEndSignal(
   if (selection) {
     editor.selection = selection;
   } else {
-    var { end } = editor.selection;
+    const { end } = editor.selection;
     editor.selection = new vscode.Selection(end, end);
   }
 }

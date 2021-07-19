@@ -40,13 +40,20 @@
     "commands": [
       {
         "command": "snipped.start",
-        "title": "Snipped > Take code screenshot"
+        "title": "Snipped > Take code screenshot",
+        "icon": "resources/alternate.png"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "command": "snipped.start"
+        }
+      ],
+      "touchBar": [
+        {
+          "command": "snipped.start",
+          "group": "editing"
         }
       ]
     },

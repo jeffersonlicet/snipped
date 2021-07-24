@@ -49,11 +49,20 @@
     }
   }
 
+  async function toSvg() {
+    const data = await domtoimage.toSvg(contentNode);
+    return data.replace(/%0A/g, "\n");
+  }
+
   async function downloadImage() {
-    const data = await domtoimage.toPng(contentNode, {
-      bgColor: "transparent",
-      scale: 3,
-    });
+    const { enablePng } = window.__data__;
+
+    const data = enablePng
+      ? await domtoimage.toPng(contentNode, {
+          bgColor: "transparent",
+          scale: 3,
+        })
+      : await toSvg();
 
     vscode.postMessage({
       type: "download",
@@ -78,7 +87,7 @@
     const linesNode = document.getElementById("lines");
     const titleNode = document.getElementById("title");
 
-    const { start, end, fileName, enableLogo } = window.__data__;
+    const { start, end, fileName, enableLogo, autoCopy } = window.__data__;
 
     titleNode.innerHTML = fileName;
 
@@ -96,7 +105,11 @@
       footer.style.display = "flex";
     }
 
-    vscode.postMessage({ type: "end", data: {} });
+    if (autoCopy) {
+      setTimeout(() => copyImage(), 200);
+    } else {
+      vscode.postMessage({ type: "end", data: {} });
+    }
   });
 
   document.execCommand("paste");

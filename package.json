@@ -7,7 +7,7 @@
     "name": "Jefferson Licet"
   },
   "icon": "resources/icon.png",
-  "version": "0.17.0",
+  "version": "0.19.0",
   "engines": {
     "vscode": "^1.57.0"
   },
@@ -40,13 +40,20 @@
     "commands": [
       {
         "command": "snipped.start",
-        "title": "Snipped > Take code screenshot"
+        "title": "Snipped > Take code screenshot",
+        "icon": "resources/alternate.png"
       }
     ],
     "menus": {
       "editor/context": [
         {
           "command": "snipped.start"
+        }
+      ],
+      "touchBar": [
+        {
+          "command": "snipped.start",
+          "group": "editing"
         }
       ]
     },
@@ -59,6 +66,18 @@
           "type": "boolean",
           "default": false,
           "description": "Enable Snipped Logo"
+        },
+        "snipped.autoCopy": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Auto Copy Screenshots"
+        },
+        "snipped.enablePng": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Save screenshots as PNG"
         }
       }
     }

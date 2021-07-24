@@ -13,6 +13,7 @@
 
 <img src="https://i.imgur.com/cClV1L9.png" width="600">
 
+
 ## Features
 
 - Save SVG or PNG screenshots of code selection or all lines of your file.
@@ -20,6 +21,9 @@
 - Option to autocopy screenshots
 - Share screenshots opening Twitter intent and pasting it.
 - Use your own theme.
+- Mac TouchBar Shortcut.
+- VS Code menu Shortcut.
+- Optional Watermark.
 - No external websites, you don't need to paste your code in external services.
 
 ## How to use it

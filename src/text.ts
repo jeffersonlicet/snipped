@@ -1,8 +1,8 @@
-import { copySelection, selectAll } from "./commands";
 import * as vscode from "vscode";
+import { copySelection, selectAll } from "./commands";
 
 export async function copyText() {
-  const activeTextEditor = vscode.window.activeTextEditor;
+  const { activeTextEditor } = vscode.window;
 
   if (!activeTextEditor) {
     return;
@@ -12,7 +12,6 @@ export async function copyText() {
 
   if (!selection || selection.isEmpty) {
     selectAll();
-  } else {
   }
 
   await copySelection();

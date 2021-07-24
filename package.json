@@ -66,6 +66,18 @@
           "type": "boolean",
           "default": false,
           "description": "Enable Snipped Logo"
+        },
+        "snipped.autoCopy": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Auto Copy Screenshots"
+        },
+        "snipped.enablePng": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Save screenshots as PNG"
         }
       }
     }

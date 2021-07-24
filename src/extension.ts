@@ -48,6 +48,9 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );
 
+        const { enableLogo, enablePng, autoCopy } =
+          vscode.workspace.getConfiguration("snipped", null);
+
         panel.webview.onDidReceiveMessage(async ({ type, data, message }) => {
           if (type === SIGNALS.end) {
             onEndSignal(editor, prevState);
@@ -78,15 +81,19 @@ export function activate(context: vscode.ExtensionContext) {
           if (type === "download") {
             const uri = await vscode.window.showSaveDialog({
               // eslint-disable-next-line @typescript-eslint/naming-convention
-              filters: { Images: ["png"] },
+              filters: { Images: [enablePng ? "png" : "svg"] },
             });
 
             if (uri) {
-              writeFile(uri.fsPath, Buffer.from(data, "base64"), (err) => {
-                if (!err) {
-                  vscode.window.showInformationMessage("Snipped saved");
+              writeFile(
+                uri.fsPath,
+                Buffer.from(data, enablePng ? "base64" : "utf-8"),
+                (err) => {
+                  if (!err) {
+                    vscode.window.showInformationMessage("Snipped saved");
+                  }
                 }
-              });
+              );
             }
           }
         });
@@ -100,11 +107,6 @@ export function activate(context: vscode.ExtensionContext) {
             .toString(),
         }));
 
-        const { enableLogo } = vscode.workspace.getConfiguration(
-          "snipped",
-          null
-        );
-
         const data = {
           start: (editor.selection ? editor.selection.start.line : 0) + 1,
           end: editor.selection
@@ -113,6 +115,8 @@ export function activate(context: vscode.ExtensionContext) {
           fileName: editor.document.fileName.split("/").pop(),
           lang: editor.document.languageId,
           enableLogo,
+          enablePng,
+          autoCopy,
         };
 
         // I know

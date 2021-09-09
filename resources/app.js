@@ -51,7 +51,10 @@
 
   async function toSvg() {
     const data = await domtoimage.toSvg(contentNode);
-    return data.replace(/%0A/g, "\n");
+    return data
+      .replace(/%0A/g, "\n")
+      .replace(/%23/g, '#')
+      .replace(/%25/g, "%");
   }
 
   async function downloadImage() {

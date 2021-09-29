@@ -112,7 +112,7 @@ export function activate(context: vscode.ExtensionContext) {
           end: editor.selection
             ? editor.selection.end.line
             : editor.document.lineCount,
-          fileName: editor.document.fileName.split("/").pop(),
+          fileName: editor.document.fileName.split(/\/|\\/).pop(),
           lang: editor.document.languageId,
           enableLogo,
           enablePng,

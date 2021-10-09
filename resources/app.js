@@ -47,14 +47,13 @@
     if (!omitMessage) {
       vscode.postMessage({ type: "copied" });
     }
+
+    containerNode.classList.add("bounce");
   }
 
   async function toSvg() {
     const data = await domtoimage.toSvg(contentNode);
-    return data
-      .replace(/%0A/g, "\n")
-      .replace(/%23/g, '#')
-      .replace(/%25/g, "%");
+    return data.replace(/%0A/g, "\n").replace(/%23/g, "#").replace(/%25/g, "%");
   }
 
   async function downloadImage() {
@@ -66,6 +65,8 @@
           scale: 3,
         })
       : await toSvg();
+
+    containerNode.classList.add("bounce");
 
     vscode.postMessage({
       type: "download",
@@ -102,7 +103,6 @@
     }
 
     containerNode.style.opacity = 1;
-    containerNode.classList.add("bounce");
 
     if (enableLogo) {
       footer.style.display = "flex";
@@ -115,5 +115,7 @@
     }
   });
 
-  document.execCommand("paste");
+  setTimeout(() => {
+    document.execCommand("paste");
+  }, 200);
 })();

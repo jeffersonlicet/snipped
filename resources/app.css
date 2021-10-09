@@ -67,14 +67,14 @@ body {
   max-width: 100%;
   overflow-x: scroll;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 80px;
 }
 
 .content {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 80px;
+  padding: 30px;
   width: max-content;
   background: #c9d6ff;
   background: -webkit-linear-gradient(to right, #e2e2e2, #c9d6ff);

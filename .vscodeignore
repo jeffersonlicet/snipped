@@ -2,6 +2,7 @@
 .vscode-test/**
 out/**
 node_modules/**
+!node_modules/dom-to-image-more/**
 src/**
 .gitignore
 .yarnrc

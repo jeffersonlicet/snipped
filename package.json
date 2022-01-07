@@ -111,6 +111,6 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "dom-to-image-even-more": "^1.0.4"
+    "dom-to-image-more": "^2.9.4"
   }
 }

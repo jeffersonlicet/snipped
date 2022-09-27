@@ -13,6 +13,10 @@
 
 <img src="https://i.imgur.com/cClV1L9.png" width="600">
 
+## Buy me beer
+
+Binance Smart Chain
+0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC 
 
 ## Features
 

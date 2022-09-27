@@ -1,20 +1,24 @@
+
 (function () {
   const vscode = acquireVsCodeApi();
   const node = document.getElementById("output");
 
   const copyButton = document.querySelector("#copy");
   const tweetButton = document.querySelector("#tweet");
+  const beerButton = document.querySelector("#beer");
+
   const downloadButton = document.querySelector("#download");
   const footer = document.querySelector("#footer");
 
   copyButton.addEventListener("click", () => copyImage(false));
   downloadButton.addEventListener("click", downloadImage);
   tweetButton.addEventListener("click", composeTweet);
+  beerButton.addEventListener("click", buyMeABeer);
 
   const contentNode = document.getElementById("content");
   const containerNode = document.getElementById("container");
 
-  function base64ToBlob(b64Data, contentType = "", sliceSize = 512) {
+  function base64ToBlob(b64Data, contentType = "", sliceSize = 1024) {
     const byteCharacters = atob(b64Data);
     const byteArrays = [];
 
@@ -34,9 +38,11 @@
   }
 
   async function copyImage(omitMessage) {
+    const { scale } = window.__data__;
+  
     const url = await domtoimage.toPng(contentNode, {
       bgColor: "transparent",
-      scale: 3,
+      scale: Math.min(4, Math.max(1, scale || 0)),
     });
 
     const blob = base64ToBlob(url.slice(url.indexOf(",") + 1), "image/png");
@@ -57,12 +63,12 @@
   }
 
   async function downloadImage() {
-    const { enablePng } = window.__data__;
+    const { enablePng, scale } = window.__data__;
 
     const data = enablePng
       ? await domtoimage.toPng(contentNode, {
           bgColor: "transparent",
-          scale: 3,
+          scale: Math.min(4, Math.max(1, scale || 0)),
         })
       : await toSvg();
 
@@ -77,6 +83,10 @@
   async function composeTweet() {
     await copyImage(true);
     vscode.postMessage({ type: "tweet" });
+  }
+
+  function buyMeABeer() {
+    vscode.postMessage({ type: "beer" });
   }
 
   document.addEventListener("paste", async (e) => {

@@ -2,7 +2,7 @@
   "name": "snipped",
   "displayName": "Snipped",
   "publisher": "jeffersonlicet",
-  "description": "Create fancy screenshots of your code without leaving the editor.",
+  "description": "Create fancy screenshots of your code without leaving the editor",
   "author": {
     "name": "Jefferson Licet"
   },
@@ -14,6 +14,10 @@
   "keywords": [
     "screenshot",
     "snippet",
+    "snipped",
+    "polacode",
+    "code",
+    "tweet",
     "share"
   ],
   "bugs": {
@@ -26,7 +30,9 @@
   },
   "homepage": "https://github.com/jeffersonlicet/snipped",
   "categories": [
-    "Other"
+    "Other",
+    "Snippets",
+    "Visualization"
   ],
   "activationEvents": [
     "onCommand:snipped.start"
@@ -64,8 +70,20 @@
         "snipped.enableLogo": {
           "scope": "resource",
           "type": "boolean",
-          "default": false,
+          "default": true,
           "description": "Enable Snipped Logo"
+        },
+        "snipped.disableTitle": {
+          "scope": "resource",
+          "type": "boolean",
+          "default": false,
+          "description": "Disable file title"
+        },
+        "snipped.scale": {
+          "scope": "resource",
+          "type": "number",
+          "default": 1,
+          "description": "File scale (1-3), larger means more quality"
         },
         "snipped.autoCopy": {
           "scope": "resource",
@@ -111,6 +129,6 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "dom-to-image-more": "^2.9.4"
+    "dom-to-image-more": "^2.12.0"
   }
 }

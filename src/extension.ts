@@ -48,12 +48,25 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );
 
-        const { enableLogo, enablePng, autoCopy } =
+        const { enableLogo, enablePng, autoCopy, disableTitle, scale } =
           vscode.workspace.getConfiguration("snipped", null);
 
         panel.webview.onDidReceiveMessage(async ({ type, data, message }) => {
           if (type === SIGNALS.end) {
             onEndSignal(editor, prevState);
+          }
+
+          if (type === "beer") {
+            vscode.window
+            .showInformationMessage("Buy me a beer by sending some crypto to my BSC address", "Sure!", "No")
+            .then(async answer => {
+              if (answer === "Sure!") {
+                await vscode.env.clipboard.writeText("0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC");
+                vscode.env.openExternal(
+                  vscode.Uri.parse('https://bscscan.com/address/0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC')
+                );
+              }
+            })
           }
 
           if (type === "message") {
@@ -112,11 +125,14 @@ export function activate(context: vscode.ExtensionContext) {
           end: editor.selection
             ? editor.selection.end.line
             : editor.document.lineCount,
-          fileName: editor.document.fileName.split(path.sep).pop(),
+          fileName: disableTitle
+            ? ""
+            : editor.document.fileName.split(path.sep).pop(),
           lang: editor.document.languageId,
           enableLogo,
           enablePng,
           autoCopy,
+          scale,
         };
 
         // I know

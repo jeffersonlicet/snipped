@@ -73,6 +73,12 @@
           "default": true,
           "description": "Enable Snipped Logo"
         },
+        "snipped.footerText": {
+          "scope": "resource",
+          "type": "string",
+          "default": "Snipped",
+          "description": "Custom Logo instead of \"Snipped\""
+        },
         "snipped.disableTitle": {
           "scope": "resource",
           "type": "boolean",

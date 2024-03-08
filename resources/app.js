@@ -1,4 +1,3 @@
-
 (function () {
   const vscode = acquireVsCodeApi();
   const node = document.getElementById("output");
@@ -39,7 +38,6 @@
 
   async function copyImage(omitMessage) {
     const { scale } = window.__data__;
-  
     const url = await domtoimage.toPng(contentNode, {
       bgColor: "transparent",
       scale: Math.min(4, Math.max(1, scale || 0)),
@@ -101,7 +99,8 @@
     const linesNode = document.getElementById("lines");
     const titleNode = document.getElementById("title");
 
-    const { start, end, fileName, enableLogo, autoCopy } = window.__data__;
+    const { start, end, fileName, enableLogo, footerText, autoCopy } =
+      window.__data__;
 
     titleNode.innerHTML = fileName;
 
@@ -116,6 +115,7 @@
 
     if (enableLogo) {
       footer.style.display = "flex";
+      footer.innerHTML = footerText;
     }
 
     if (autoCopy) {

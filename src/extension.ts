@@ -48,7 +48,7 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );
 
-        const { enableLogo, enablePng, autoCopy, disableTitle, scale } =
+        const { enableLogo, footerText, enablePng, autoCopy, disableTitle, scale } =
           vscode.workspace.getConfiguration("snipped", null);
 
         panel.webview.onDidReceiveMessage(async ({ type, data, message }) => {
@@ -58,15 +58,15 @@ export function activate(context: vscode.ExtensionContext) {
 
           if (type === "beer") {
             vscode.window
-            .showInformationMessage("Buy me a beer by sending some crypto to my BSC address", "Sure!", "No")
-            .then(async answer => {
-              if (answer === "Sure!") {
-                await vscode.env.clipboard.writeText("0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC");
-                vscode.env.openExternal(
-                  vscode.Uri.parse('https://bscscan.com/address/0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC')
-                );
-              }
-            })
+              .showInformationMessage("Buy me a beer by sending some crypto to my BSC address", "Sure!", "No")
+              .then(async answer => {
+                if (answer === "Sure!") {
+                  await vscode.env.clipboard.writeText("0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC");
+                  vscode.env.openExternal(
+                    vscode.Uri.parse('https://bscscan.com/address/0x8340ACeF21D1fAE94305ad580B963b3f5283F1AC')
+                  );
+                }
+              })
           }
 
           if (type === "message") {
@@ -130,6 +130,7 @@ export function activate(context: vscode.ExtensionContext) {
             : editor.document.fileName.split(path.sep).pop(),
           lang: editor.document.languageId,
           enableLogo,
+          footerText,
           enablePng,
           autoCopy,
           scale,
@@ -157,4 +158,4 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-export function deactivate() {}
+export function deactivate() { }

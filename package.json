@@ -7,7 +7,7 @@
     "name": "Jefferson Licet"
   },
   "icon": "resources/icon.png",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "engines": {
     "vscode": "^1.57.0"
   },
@@ -72,6 +72,12 @@
           "type": "boolean",
           "default": true,
           "description": "Enable Snipped Logo"
+        },
+        "snipped.footerText": {
+          "scope": "resource",
+          "type": "string",
+          "default": "Snipped",
+          "description": "Custom Logo instead of \"Snipped\""
         },
         "snipped.disableTitle": {
           "scope": "resource",
